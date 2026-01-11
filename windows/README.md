@@ -83,7 +83,7 @@ launch a Powershell terminal, go to the bootstrap folder and execute the `bootst
   - [ ] Documents
   - [ ] $Home
   - [ ] .dotfiles
-- [ ] Move users's folders (My Docs, Music, Videos, Downloads, Saved Games, 3D objects)
+- [ ] Move users's folders (My Docs, Music, Videos, Downloads, Saved Games, 3D objects) to an other drive
 - [ ] Power mode (high performances, no sleep)
 - [ ] Don't allow mouse to wake up, and magic paquet for eth top wake up. [Reference](https://www.pcastuces.com/pratique/astuces/3302.htm)
 - [ ] [Firewall](./private/TODO.md#firewall)

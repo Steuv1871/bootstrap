@@ -47,5 +47,7 @@ if ($Desktop) {
 $shellScriptPath = Join-Path $PSScriptRoot ".\WSL\"
 
 # Bootstrap Debian
-wsl -d Debian --cd $shellScriptPath -e ./bootstrap-wsl-debian.sh
+wsl -d Debian --cd $shellScriptPath -e ./WSL/bootstrap-wsl-debian.sh
 
+# Bootstrap Fedora
+wsl -d FedoraLinux-43 --cd $shellScriptPath -e ./WSL/bootstrap-wsl-fedora.sh
