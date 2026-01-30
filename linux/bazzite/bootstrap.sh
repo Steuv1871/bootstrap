@@ -23,13 +23,11 @@ nvim --headless "+Lazy! sync" +qa
 nvim --headless "+MasonUpdate" +qa
 
 ### Customize
-# Add windows to GRUB
-ujust regenerate-grub
 # Show * on password
 ujust toggle-password-feedback
 
 ### CLI tools
-brew install bbrew dysk tealdeer tv
+brew install bbrew dysk tealdeer television
 tldr --update
 
 ### GUI Soft
@@ -39,5 +37,20 @@ ujust install-resolve
 # Install VsCode
 flatpak install com.vscodium.codium
 
+### GRUB
+# Copy theme to GRUB themes directory
+sudo mkdir -P /boot/grub2/themes
+bash ~/.dotfiles/GRUB/themes/fallout-grub-theme/install.sh --lang French
+# sudo tar -xvf ~/.dotfiles/GRUB/themes/grub_linea.tar.gz -C /boot/grub2/themes
+# sudo rm /boot/grub2/themes/linea-intermediary-grub.png /boot/grub2/themes/README.md
+# sudo tar -xvf ~/.dotfiles/GRUB/themes/Stardew-Valley.tar -C /boot/grub2/themes
 
+# Copy GRUB config and make
+sudo cp ~/.dotfiles/GRUB/grub /etc/default/grub
+# sudo grub2-mkconfig -o /etc/grub2.cfg # done by ujust regenerate-grub
+ujust regenerate-grub
 
+### Steam
+# Accelerate shader compiling
+echo '@ShaderBackgroundProcessingThreads 8' >> .local/share/Steam/steam_dev.cfg
+echo 'unShaderBackgroundProcessingThreads 8' >> .local/share/Steam/steam_dev.cfg
