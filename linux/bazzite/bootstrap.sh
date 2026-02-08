@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+### System config
+sudo systemctl enable --now sshd
+
 ### Sys tools
 brew install git wget tree awk vim zsh starship fzf stow ripgrep
 git config --global user.name  "Steuv1871"
