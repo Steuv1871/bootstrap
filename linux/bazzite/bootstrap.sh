@@ -12,6 +12,10 @@ fi
 
 ### System config
 sudo systemctl enable --now sshd
+# Use of GPU by default for app (need a restart, can be check with nvidia-smi when an app is running)
+mkdir -p ~/.config/environment.d
+echo "__NV_PRIME_RENDER_OFFLOAD=1" > ~/.config/environment.d/nvidia.conf
+echo "__GLX_VENDOR_LIBRARY_NAME=nvidia" >> ~/.config/environment.d/nvidia.conf
 
 ### Sys tools
 brew install wget tree awk zsh starship fzf stow ripgrep
