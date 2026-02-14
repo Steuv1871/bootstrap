@@ -43,13 +43,6 @@ ujust toggle-password-feedback
 brew install bbrew dysk tealdeer television tldr
 tldr --update
 
-### GUI Soft
-# Install DaVinci (nécessite de DL l'installeur Linux)
-ujust install-resolve
-
-# Install VsCode
-flatpak install com.vscodium.codium
-
 ### GRUB
 # Copy theme to GRUB themes directory
 sudo mkdir -p /boot/grub2/themes
@@ -72,8 +65,10 @@ echo 'unShaderBackgroundProcessingThreads 8' >> .local/share/Steam/steam_dev.cfg
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
 # Create symbolic links to add kitty and kitten to PATH (assuming ~/.local/bin is in
 # your system-wide PATH)
+mkdir -p ~/.local/bin
 ln -sf ~/.local/kitty.app/bin/kitty ~/.local/kitty.app/bin/kitten ~/.local/bin/
 # Place the kitty.desktop file somewhere it can be found by the OS
+mkdir -p ~/.local/share/applications
 cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applications/
 # If you want to open text files and images in kitty via your file manager also add the kitty-open.desktop file
 cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/applications/
@@ -84,4 +79,15 @@ sed -i "s|TryExec=kitty|TryExec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~
 sed -i "s|^Exec=kitty|Exec=env SHELL=$(command -v zsh) $(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
 echo 'kitty.desktop' > ~/.config/xdg-terminals.list
+
+### GUI Soft
+# Install VsCode
+flatpak install com.vscodium.codium
+
+# Install de Heroic
+flatpak install com.heroicgameslauncher.hgl
+
+# Install DaVinci (need to download the installer from website during install script)
+ujust install-resolve
+
 
