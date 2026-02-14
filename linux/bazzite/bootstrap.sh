@@ -1,10 +1,20 @@
 #!/usr/bin/env bash
 
+### Check before starting
+if [ ! -d "$HOME/.dotfiles" ]; then
+	echo "$HOME/.dotfiles missing, stopping script"
+	exit 1
+fi
+if [ ! -f "$HOME/.dotfiles/grub/themes/fallout-grub-theme/install.sh" ]; then
+	echo "dotfiles cloned without submodule. use: git submodule update --init --recursive"
+	exit 1
+fi
+
 ### System config
 sudo systemctl enable --now sshd
 
 ### Sys tools
-brew install git wget tree awk vim zsh starship fzf stow ripgrep
+brew install wget tree awk zsh starship fzf stow ripgrep
 git config --global user.name  "Steuv1871"
 git config --global user.email "stevo447@hotmail.com"
 
@@ -30,7 +40,7 @@ nvim --headless "+MasonUpdate" +qa
 ujust toggle-password-feedback
 
 ### CLI tools
-brew install bbrew dysk tealdeer television
+brew install bbrew dysk tealdeer television tldr
 tldr --update
 
 ### GUI Soft
@@ -42,14 +52,14 @@ flatpak install com.vscodium.codium
 
 ### GRUB
 # Copy theme to GRUB themes directory
-sudo mkdir -P /boot/grub2/themes
-bash ~/.dotfiles/GRUB/themes/fallout-grub-theme/install.sh --lang French
+sudo mkdir -p /boot/grub2/themes
+bash ~/.dotfiles/grub/themes/fallout-grub-theme/install.sh --lang French
 # sudo tar -xvf ~/.dotfiles/GRUB/themes/grub_linea.tar.gz -C /boot/grub2/themes
 # sudo rm /boot/grub2/themes/linea-intermediary-grub.png /boot/grub2/themes/README.md
 # sudo tar -xvf ~/.dotfiles/GRUB/themes/Stardew-Valley.tar -C /boot/grub2/themes
 
 # Copy GRUB config and make
-sudo cp ~/.dotfiles/GRUB/grub /etc/default/grub
+sudo cp ~/.dotfiles/grub/grub /etc/default/grub
 # sudo grub2-mkconfig -o /etc/grub2.cfg # done by ujust regenerate-grub
 ujust regenerate-grub
 
