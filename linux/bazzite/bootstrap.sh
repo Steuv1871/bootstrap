@@ -30,7 +30,7 @@ mkdir -p ~/.config
 rm ~/.bashrc
 rm ~/.zshrc
 cd ~/.dotfiles
-stow zsh bash bottom fastfetch neovide starship nvim fonts
+stow zsh bash bottom fastfetch neovide starship nvim fonts kitty
 
 ### Nvim
 brew install neovim
@@ -44,7 +44,7 @@ nvim --headless "+MasonUpdate" +qa
 ujust toggle-password-feedback
 
 ### CLI tools
-brew install bbrew dysk tealdeer television tldr
+brew install dysk tealdeer television
 tldr --update
 
 ### GRUB
@@ -62,8 +62,10 @@ ujust regenerate-grub
 
 ### Steam
 # Accelerate shader compiling
-echo '@ShaderBackgroundProcessingThreads 8' >> .local/share/Steam/steam_dev.cfg
+echo '@ShaderBackgroundProcessingThreads 8' > .local/share/Steam/steam_dev.cfg
 echo 'unShaderBackgroundProcessingThreads 8' >> .local/share/Steam/steam_dev.cfg
+# Link to APPDATA emulation
+ln -s ~/.steam/steam/steamapps/compatdata/1286830/pfx/drive_c/users/steamuser/AppData/  ~/.steam/AppData
 
 ### Kitty
 curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
