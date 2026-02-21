@@ -31,6 +31,7 @@ rm ~/.bashrc
 rm ~/.zshrc
 cd ~/.dotfiles
 stow zsh bash bottom fastfetch neovide starship nvim fonts kitty
+stow bazzite --no-folding
 
 ### Nvim
 brew install neovim
@@ -90,8 +91,8 @@ echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 # Install VsCode
 flatpak install com.vscodium.codium
 
-# Install de Heroic
-flatpak install com.heroicgameslauncher.hgl
+# Install Obsidian
+flatpak install flathub md.obsidian.Obsidian
 
 # Install DaVinci (need to download the installer from website during install script)
 ujust install-resolve
