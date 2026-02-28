@@ -34,6 +34,10 @@ stow zsh bash bottom fastfetch neovide starship nvim fonts kitty
 stow bazzite --no-folding
 
 ### Nvim
+# dependency
+brew install npm ripgrep tree-sitter-cli
+
+# install
 brew install neovim
 # Sync Lazy and Mason packages for NvChad
 export NVIM_APPNAME=nvim-nvchad
@@ -80,10 +84,10 @@ cp ~/.local/kitty.app/share/applications/kitty.desktop ~/.local/share/applicatio
 # If you want to open text files and images in kitty via your file manager also add the kitty-open.desktop file
 cp ~/.local/kitty.app/share/applications/kitty-open.desktop ~/.local/share/applications/
 # Update the paths to the kitty and its icon in the kitty desktop file(s)
-# And modify SHELL env variable before launching to use ZSH
 sed -i "s|Icon=kitty|Icon=$(readlink -f ~)/.local/kitty.app/share/icons/hicolor/256x256/apps/kitty.png|g" ~/.local/share/applications/kitty*.desktop
 sed -i "s|TryExec=kitty|TryExec=$(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
-sed -i "s|^Exec=kitty|Exec=env SHELL=$(command -v zsh) $(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
+# And modify SHELL env variable before launching to use ZSH --> Obsolete, changing $SHELL in OS settings instead
+# sed -i "s|^Exec=kitty|Exec=env SHELL=$(command -v zsh) $(readlink -f ~)/.local/kitty.app/bin/kitty|g" ~/.local/share/applications/kitty*.desktop
 # Make xdg-terminal-exec (and hence desktop environments that support it use kitty)
 echo 'kitty.desktop' > ~/.config/xdg-terminals.list
 
