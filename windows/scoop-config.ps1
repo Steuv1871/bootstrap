@@ -105,6 +105,7 @@ $Scoop = @(
     "audacity",
     "deluge",
     "nuclear",
+    "youtube-music",
     "syncthing",
     "via",
     "turnedontimesview",
