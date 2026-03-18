@@ -137,7 +137,8 @@ if ($Desktop) {
         "EpicGames.EpicGamesLauncher",
         "ElectronicArts.EADesktop",
         "NexusMods.Vortex",
-        "WeMod.WeMod"
+        "WeMod.WeMod",
+        "TeamProwlarr.Prowlarr"
     )
     foreach ($item in $WinGet) {
         Install-WinGetApp -PackageID "$item"
