@@ -2,7 +2,7 @@
 
 ### Sys Update & Init
 sudo dnf upgrade
-sudo dnf install man gcc make git curl wget tree awk unzip rsync vim zsh ripgrep fzf stow fastfetch -y
+sudo dnf install man gcc make git curl wget tree awk unzip rsync vim zsh ripgrep bat fzf stow fastfetch -y
 
 ### Choose password if not done already
 if [ "$(passwd --status $(whoami) | awk '{print $2}')" = "L" ]; then
@@ -12,7 +12,7 @@ fi
 
 # Install rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --default-toolchain none -y
-# rustup default stable #???
+rustup default stable #download toolchain to set up cargo env var, needed for following cargo build
 source ~/.bashrc # to set cargo env var, needed for following cargo build
 
 ### starship
@@ -34,7 +34,7 @@ if [ -d "$win_dot" ]; then
     rm ~/.bashrc
     rm ~/.zshrc
     cd ~/.dotfiles
-    stow zsh bash bottom fastfetch neovide starship nvim
+    stow zsh bash bottom fastfetch neovide starship nvim television
 else
     echo "Windows dotfiles not found at $win_dot"
 fi
@@ -42,13 +42,15 @@ fi
 ### Nvim
 sudo dnf install neovim
 # Sync Lazy and Mason packages for NvChad
-export NVIM_APPNAME=nvim-nvchad
-nvim --headless "+Lazy! sync" +qa
-nvim --headless "+MasonUpdate" +qa
+NVIM_APPNAME=nvim-nvchad nvim --headless "+Lazy! sync" +qa
+NVIM_APPNAME=nvim-nvchad nvim --headless "+MasonUpdate" +qa
 
-### TLDR
-sudo dnf install tldr -y
-tldr -u
+### CLI tools
+sudo dnf install tealdeer -y
+tldr --update
+
+cargo install television
+cargo install dysk
 
 #######
 # End #
