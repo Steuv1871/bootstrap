@@ -138,7 +138,8 @@ if ($Desktop) {
         "ElectronicArts.EADesktop",
         "NexusMods.Vortex",
         "WeMod.WeMod",
-        "TeamProwlarr.Prowlarr"
+        "TeamProwlarr.Prowlarr",
+        "TeamSonarr.Sonarr"
     )
     foreach ($item in $WinGet) {
         Install-WinGetApp -PackageID "$item"
