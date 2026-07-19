@@ -85,7 +85,7 @@ $WinGet = @(
     "Microsoft.VCRedist.2015+.x64",
     "Microsoft.VCRedist.2015+.x86",
     "Microsoft.VisualStudio.2022.BuildTools",
-    "Microsoft.DotNet.DesktopRuntime.8" # Needed by handbrake. Adapte version number (why no latest ? because there's a preview...)
+    "Microsoft.DotNet.DesktopRuntime.10" # Needed by handbrake. Adapte version number (why no latest ? because there's a preview...)
     "Microsoft.WindowsTerminal",
     "Microsoft.PowerToys",
     "Notepad++.Notepad++",
@@ -138,7 +138,8 @@ if ($Desktop) {
         "ElectronicArts.EADesktop",
         "NexusMods.Vortex",
         "WeMod.WeMod",
-        "TeamProwlarr.Prowlarr"
+        "TeamProwlarr.Prowlarr",
+        "TeamSonarr.Sonarr"
     )
     foreach ($item in $WinGet) {
         Install-WinGetApp -PackageID "$item"
