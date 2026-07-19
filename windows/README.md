@@ -68,7 +68,7 @@ launch a Powershell terminal, go to the bootstrap folder and execute the `bootst
 ### Windows Config
 - [ ] Modify screen refresh rate
 - [ ] Change hostname
-- [ ] DNS config: https://www.fdn.fr/actions/dns/ or https://sebsauvage.net/wiki/doku.php?id=dns-alternatifs
+- [ ] DNS config: https://www.fdn.fr/actions/dns/ or https://sebsauvage.net/wiki/doku.php?id=dns-alternatifs --> [Note obisidian](obsidian://open?vault=zettelkasten&file=Dev%2FSysadmin%2FSU%20-%20DNS)
 - [ ] Taskbar
   - [ ] Preferences: small buttons, never combine, 2 lines (TODO: Add to bootstrap)
   - [ ] Pin to taskbar: Keepass, Notepad++, webbrowser (TODO: Add to bootstrap)
